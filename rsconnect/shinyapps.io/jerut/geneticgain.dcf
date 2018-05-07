@@ -1,0 +1,12 @@
+name: geneticgain
+title: GeneticGain
+username:
+account: jerut
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 337282
+bundleId: 1355353
+url: https://jerut.shinyapps.io/geneticgain/
+when: 1525425356.07592
+asMultiple: FALSE
+asStatic: FALSE
