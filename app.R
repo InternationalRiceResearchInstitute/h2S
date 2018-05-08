@@ -4,6 +4,7 @@
 #
 
 library(shiny)
+library(shinyBS)
 # Define UI
 ui <- fluidPage(
   # Application title
