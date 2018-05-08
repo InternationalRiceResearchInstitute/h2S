@@ -1,5 +1,3 @@
-
-# This is the user-interface definition of a Shiny web application.
 # You can find out more about building applications with Shiny here:
 #
 # http://shiny.rstudio.com
@@ -9,20 +7,37 @@ library(shiny)
 # Define UI
 ui <- fluidPage(
   # Application title
-  titlePanel("Expected genetic gain"),
+  img(src = "App Branding.jpg"),
+  br(),
   br(),
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel= sidebarPanel(
-      sliderInput("cycdur", label = "Number of years to complete one breeding cycle",
+      sliderInput("cycdur", label = "Breeding cycle duration",
                   min = 1,  max = 15, value = 7, step=1),
-      sliderInput("sliderh2", label = "Heritability in the target region",
+      
+      bsTooltip(id = "cycdur", title = "After making a cross, how many years does it take for a progeny of that cross to become a new parent?", 
+                placement = "bottom", trigger = "hover"),
+      
+      sliderInput("sliderh2", label = "Heritability",
                   min = 0,  max = 1, value = .1, step=0.05),
-      sliderInput("sliderNcand", label = "Population size: Number of potential new parents for crossing each cycle",
+      
+      bsTooltip(id = "sliderh2", title = "What is the heritability of the trait or index of traits in the target region?", 
+                placement = "bottom", trigger = "hover"),
+
+      sliderInput("sliderNcand", label = "Population size",
                   min = 10,  max = 1000, value = 200, step=10),
-      sliderInput("sliderNpar", label = "Number selected: Number of new parents selected for crossing each cycle",
+      
+      bsTooltip(id = "sliderNcand", title = "How many breeding individuals are phenotyped in multiple environments for the target traits?", 
+                placement = "bottom", trigger = "hover"),
+      
+      sliderInput("sliderNpar", label = "Number selected",
                   min = 10,  max = 100, value = 30, step=10),
-      sliderInput("sliderNcyc", label = "Number of cycles of selection",
+      
+      bsTooltip(id = "sliderNpar", title = "How many parents are selected for crossing?", 
+                placement = "bottom", trigger = "hover"),
+      
+      sliderInput("sliderNcyc", label = "Number of cycles",
                   min = 1,  max = 5, value = 1),
       numericInput("minVal", label = "Phenotypic distribution minimum value", value = 2),
       numericInput("maxVal", label = "Phenotypic distribution maximum value", value = 8)),
@@ -33,7 +48,9 @@ ui <- fluidPage(
       tabsetPanel(type = "tabs",
                   tabPanel("Expected genetic gain",
                            br(),
-                           numericInput("rnseed", label = "Replicate of selection program", value = 1),
+                           numericInput("rnseed", label = "Replicate", value = 1),
+                           bsTooltip(id = "rnseed", title = "This option allows you to repeat the same breeding process again to see how random chance affects the outcome", 
+                                     placement = "bottom", trigger = "hover"),
                            br(),
                            plotOutput("plot1")),
                   tabPanel("Variables",

@@ -5,8 +5,8 @@ account: jerut
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 337282
-bundleId: 1355353
+bundleId: 1361323
 url: https://jerut.shinyapps.io/geneticgain/
-when: 1525425356.07592
+when: 1525739369.1915
 asMultiple: FALSE
 asStatic: FALSE
